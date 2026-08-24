@@ -151,28 +151,41 @@
     .hero {
       position: relative;
       overflow: hidden;
-      background: linear-gradient(115deg, #fff 0%, #fff 53%, #edf4fb 100%);
-      padding: 95px 0 80px
-    }
-
-    .hero:before {
-      content: "";
-      position: absolute;
-      right: -160px;
-      top: -180px;
-      width: 620px;
-      height: 620px;
-      border: 90px solid rgba(11, 57, 120, .06);
-      transform: rotate(45deg)
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.02fr .98fr;
+      min-height: 640px;
+      display: flex;
       align-items: center;
-      gap: 55px;
+      color: #fff;
+      padding: 140px 0 90px
+    }
+
+    .hero:after {
+      content: "NEXTRA";
+      position: absolute;
+      right: -35px;
+      bottom: 20px;
+      font-size: 130px;
+      font-weight: 900;
+      color: #fff;
+      opacity: .06;
+      letter-spacing: .04em;
+      z-index: 2;
+      pointer-events: none
+    }
+
+    .hero-content {
       position: relative;
-      z-index: 1
+      z-index: 2;
+      max-width: 700px
+    }
+
+    .rotate-word {
+      color: var(--red);
+      display: inline-block;
+      transition: opacity .3s ease
+    }
+
+    .rotate-word.fade {
+      opacity: 0
     }
 
     .eyebrow {
@@ -189,12 +202,12 @@
       line-height: 1.05;
       letter-spacing: -.045em;
       margin-bottom: 25px;
-      color: var(--blue-dark)
+      color: #fff
     }
 
     .hero p {
       font-size: 18px;
-      color: #526173;
+      color: #d9e5f4;
       max-width: 650px;
       margin-bottom: 30px
     }
@@ -248,16 +261,6 @@
       background: #fff5f6
     }
 
-    .hero-card {
-      min-height: 430px;
-      border-radius: 24px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      padding: 35px;
-      color: #fff
-    }
-
     .hero-img {
       position: absolute;
       inset: 0;
@@ -272,20 +275,8 @@
       inset: 0;
       z-index: 1;
       background:
-        linear-gradient(160deg, rgba(11, 57, 120, .93), rgba(6, 41, 87, .6) 55%, rgba(6, 41, 87, .9)),
-        radial-gradient(circle at 80% 20%, rgba(227, 6, 32, .6), transparent 35%)
-    }
-
-    .hero-card:after {
-      content: "NEXTRA";
-      position: absolute;
-      right: -35px;
-      bottom: 35px;
-      font-size: 100px;
-      font-weight: 900;
-      opacity: .05;
-      letter-spacing: .04em;
-      z-index: 2
+        linear-gradient(100deg, rgba(6, 41, 87, .95) 0%, rgba(11, 57, 120, .85) 45%, rgba(6, 41, 87, .45) 100%),
+        radial-gradient(circle at 85% 20%, rgba(227, 6, 32, .35), transparent 40%)
     }
 
     .hero-shape {
@@ -297,50 +288,6 @@
       border: 65px solid rgba(255, 255, 255, .1);
       transform: rotate(45deg);
       z-index: 2
-    }
-
-    .hero-content-card {
-      position: absolute;
-      left: 35px;
-      right: 35px;
-      bottom: 35px;
-      z-index: 2
-    }
-
-    .hero-content-card h3 {
-      font-size: 30px;
-      line-height: 1.2;
-      margin-bottom: 10px
-    }
-
-    .hero-content-card p {
-      font-size: 15px;
-      color: #d9e5f4;
-      margin: 0
-    }
-
-    .visual-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 25px
-    }
-
-    .visual-item {
-      background: rgba(255, 255, 255, .09);
-      border: 1px solid rgba(255, 255, 255, .13);
-      padding: 15px;
-      border-radius: 12px
-    }
-
-    .visual-item strong {
-      display: block;
-      font-size: 14px
-    }
-
-    .visual-item span {
-      font-size: 12px;
-      color: #c8d7e9
     }
 
     .trust {
@@ -428,11 +375,26 @@
     .about-visual {
       min-height: 440px;
       border-radius: 20px;
-      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
       position: relative;
       overflow: hidden;
       padding: 35px;
       color: #fff
+    }
+
+    .about-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0
+    }
+
+    .about-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(135deg, rgba(11, 57, 120, .9), rgba(6, 41, 87, .93))
     }
 
     .about-visual:before {
@@ -443,27 +405,32 @@
       border: 55px solid rgba(255, 255, 255, .09);
       transform: rotate(45deg);
       right: -90px;
-      top: -80px
+      top: -80px;
+      z-index: 2
     }
 
     .about-visual .number {
       font-size: 110px;
       font-weight: 900;
       line-height: 1;
-      opacity: .15
+      opacity: .15;
+      position: relative;
+      z-index: 2
     }
 
     .about-visual h3 {
       font-size: 32px;
       max-width: 360px;
-      position: relative
+      position: relative;
+      z-index: 2
     }
 
     .about-visual p {
       max-width: 400px;
       color: #dce7f4;
       margin-top: 15px;
-      position: relative
+      position: relative;
+      z-index: 2
     }
 
     .checks {
@@ -644,17 +611,41 @@
       position: relative
     }
 
-    .ict-photo {
+    .ict-photos {
+      position: relative;
+      height: 420px
+    }
+
+    .ict-photo-main {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 76%;
+      height: 310px;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: var(--shadow);
-      border: 1px solid rgba(255, 255, 255, .14)
+      border: 1px solid rgba(255, 255, 255, .14);
+      z-index: 1
     }
 
-    .ict-photo img {
+    .ict-photo-secondary {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 58%;
+      height: 220px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 5px solid var(--blue-dark);
+      z-index: 2
+    }
+
+    .ict-photo-main img,
+    .ict-photo-secondary img {
       width: 100%;
       height: 100%;
-      min-height: 360px;
       object-fit: cover;
       display: block
     }
@@ -862,6 +853,42 @@
       display: none
     }
 
+    .back-to-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      border: 0;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: .25s;
+      z-index: 900
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0)
+    }
+
+    .back-to-top:hover {
+      background: var(--red)
+    }
+
+    .back-to-top svg {
+      width: 20px;
+      height: 20px
+    }
+
     @media(max-width:1000px) {
       .nav-links {
         display: none
@@ -872,18 +899,27 @@
       }
 
       .mobile-menu {
+        display: block;
         position: absolute;
         left: 0;
         right: 0;
         top: 82px;
         background: #fff;
         border-bottom: 1px solid var(--border);
-        padding: 15px 20px;
-        box-shadow: var(--shadow)
+        padding: 0 20px;
+        box-shadow: var(--shadow);
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-8px);
+        transition: max-height .35s ease, opacity .3s ease, transform .3s ease, padding .35s ease
       }
 
       .mobile-menu.open {
-        display: block
+        max-height: 420px;
+        opacity: 1;
+        transform: translateY(0);
+        padding: 15px 20px
       }
 
       .mobile-menu a {
@@ -892,10 +928,15 @@
         font-weight: 700
       }
 
-      .hero-grid,
       .about-grid,
       .ict-layout {
         grid-template-columns: 1fr
+      }
+
+      .ict-photos {
+        height: 340px;
+        max-width: 480px;
+        margin: 0 auto
       }
 
       .trust-grid {
@@ -967,11 +1008,8 @@
       }
 
       .hero {
-        padding: 65px 0 55px
-      }
-
-      .hero-card {
-        min-height: 360px
+        padding: 100px 0 55px;
+        min-height: 480px
       }
 
       h1 {
@@ -1048,34 +1086,19 @@
 
   <main>
     <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">Welcome to Nextra Support Limited</div>
-          <h1>Your Reliable Partner for Industrial, Construction & ICT Solutions</h1>
+      <img class="hero-img" src="next.jpg" alt="Nextra Support Limited operations">
+      <div class="hero-overlay"></div>
+      <div class="hero-shape"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow" style="color:#ff5264">Welcome to Nextra Support Limited</div>
+          <h1>Your <span class="rotate-word" id="rotateWord">Reliable</span> Partner for Industrial, Construction &
+            ICT Solutions</h1>
           <p>We provide reliable products, equipment and technical solutions with professional sourcing, responsive
             service and dependable delivery across Tanzania.</p>
           <div class="actions">
-            <a class="btn btn-primary" href="#solutions">Explore Our Solutions <span>→</span></a>
-            <a class="btn btn-outline" href="#contact">Request a Quote <span>→</span></a>
-          </div>
-        </div>
-        <div class="hero-card">
-          <!-- REPLACE: swap this src with your own hero photo (warehouse, products or team), recommended 1200x900 or larger -->
-          <img class="hero-img"
-            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='900' viewBox='0 0 1200 900'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23c9d8ec'/%3E%3Cstop offset='1' stop-color='%237e97b8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='900' fill='url(%23g)'/%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='10' stroke-linecap='round' stroke-linejoin='round' opacity='0.85'%3E%3Crect x='430' y='340' width='340' height='250' rx='16'/%3E%3Ccircle cx='510' cy='410' r='22'/%3E%3Cpath d='M430 540l90-80 70 60 60-70 120 100'/%3E%3C/g%3E%3Ctext x='600' y='660' font-family='Arial,Helvetica,sans-serif' font-size='26' fill='%23ffffff' text-anchor='middle' opacity='0.9'%3EReplace with hero image (1200x900)%3C/text%3E%3C/svg%3E"
-            alt="Nextra Support Limited operations">
-          <div class="hero-overlay"></div>
-          <div class="hero-shape"></div>
-          <div class="hero-content-card">
-            <div class="eyebrow" style="color:#ff5264">Nextra Solutions</div>
-            <h3>One dependable partner for your operational requirements.</h3>
-            <p>From industrial supplies and construction materials to ICT infrastructure and technical support.</p>
-            <div class="visual-grid">
-              <div class="visual-item"><strong>Industrial</strong><span>Supplies & consumables</span></div>
-              <div class="visual-item"><strong>Construction</strong><span>Materials & equipment</span></div>
-              <div class="visual-item"><strong>Safety</strong><span>PPE & site products</span></div>
-              <div class="visual-item"><strong>ICT</strong><span>Infrastructure & support</span></div>
-            </div>
+            <a class="btn btn-red" href="#solutions">Explore Our Solutions <span>→</span></a>
+            <a class="btn" style="background:#fff;color:var(--blue)" href="#contact">Request a Quote <span>→</span></a>
           </div>
         </div>
       </div>
@@ -1114,6 +1137,8 @@
     <section class="section" id="about">
       <div class="container about-grid">
         <div class="about-visual">
+          <img class="about-img" src="ne.jpg" alt="Nextra Support Limited team and operations">
+          <div class="about-overlay"></div>
           <div class="number">2022</div>
           <h3>Tanzanian-owned. Customer-focused. Built for reliable delivery.</h3>
           <p>Nextra Support Limited combines sourcing, procurement, technical support, logistics and customer service
@@ -1218,11 +1243,11 @@
           <p>Practical ICT solutions that improve connectivity, reliability, security and operational efficiency.</p>
         </div>
         <div class="ict-layout">
-          <div class="ict-photo">
-            <!-- REPLACE: swap this src with your own ICT/network photo, recommended 900x700 or larger -->
-            <img
-              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='700' viewBox='0 0 900 700'%3E%3Cdefs%3E%3ClinearGradient id='g2' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231a3f73'/%3E%3Cstop offset='1' stop-color='%230b3978'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='900' height='700' fill='url(%23g2)'/%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' opacity='0.85'%3E%3Crect x='330' y='260' width='240' height='180' rx='14'/%3E%3Cpath d='M370 300h160M370 340h160M370 380h100'/%3E%3Ccircle cx='450' cy='230' r='18'/%3E%3C/g%3E%3Ctext x='450' y='500' font-family='Arial,Helvetica,sans-serif' font-size='24' fill='%23ffffff' text-anchor='middle' opacity='0.9'%3EReplace with ICT/network image (900x700)%3C/text%3E%3C/svg%3E"
-              alt="ICT network infrastructure and support">
+          <div class="ict-photos">
+            <div class="ict-photo-main"><img src="xtra.jpg" alt="ICT network infrastructure and support"></div>
+            <div class="ict-photo-secondary">
+              <img src="mnara.jpg" alt="ICT technical support and maintenance">
+            </div>
           </div>
           <div class="ict-grid">
             <div class="ict-card">
@@ -1507,6 +1532,10 @@
     </div>
   </footer>
 
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
   <script>
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('open');
@@ -1517,6 +1546,21 @@
         a.classList.add('active');
       });
     });
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('show', window.scrollY > 500);
+    });
+    const rotateWords = ['Reliable', 'Practical', 'Professional'];
+    const rotateEl = document.getElementById('rotateWord');
+    let rotateIndex = 0;
+    setInterval(() => {
+      rotateEl.classList.add('fade');
+      setTimeout(() => {
+        rotateIndex = (rotateIndex + 1) % rotateWords.length;
+        rotateEl.textContent = rotateWords[rotateIndex];
+        rotateEl.classList.remove('fade');
+      }, 300);
+    }, 2200);
   </script>
 </body>
 
